@@ -1,6 +1,4 @@
 import os
-import time
-
 from selene import have, command
 from selene.support.shared import browser
 from selenium.webdriver.common.by import By
@@ -12,9 +10,7 @@ def test_successful_input_Registration_Form(self=None):
     browser.element('[id=firstName]').type('Michael')
     browser.element('[id=lastName]').type('Kors')
     browser.element('[id = userEmail]').type('Michael@Kors.com')
-
     browser.element('[name=gender][value=Male]').double_click()
-
     browser.element('[id = userNumber]').type('8667095677')
 
     # Date of Birth
