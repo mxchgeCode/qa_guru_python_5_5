@@ -2,10 +2,8 @@ import os
 from selene import have, command
 from selene.support.shared import browser
 
-
 def test_successful_input_registration_form():
-    browser.open('https://demoqa.com/automation-practice-form')
-    browser.driver.maximize_window()
+    browser.open('/')
 
     browser.element('[id = firstName]').type('Michael')
     browser.element('[id = lastName]').type('Kors')
@@ -36,4 +34,12 @@ def test_successful_input_registration_form():
 
     browser.element('#submit').perform(command.js.click)
     browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
+
+
+    browser.all('tbody tr').should(
+        have.exact_texts('Student Name Michael Kors', 'Student Email Michael@Kors.com', 'Gender Male',
+                         'Mobile 8667095677', 'Date of Birth 09 August,1959', 'Subjects Chemistry, Maths, Physics', 'Hobbies Sports, Reading',
+                         'Picture solution.png', 'Address Rodriguez side, LA 93111', 'State and City Uttar Pradesh Agra'))
+
+
     browser.element('[id =closeLargeModal]').click()
