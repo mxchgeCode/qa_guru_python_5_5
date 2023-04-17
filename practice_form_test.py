@@ -3,7 +3,7 @@ from selene import have, command
 from selene.support.shared import browser
 
 def test_successful_input_registration_form():
-    browser.open('/')
+    browser.open('/automation-practice-form')
 
     browser.element('[id = firstName]').type('Michael')
     browser.element('[id = lastName]').type('Kors')
